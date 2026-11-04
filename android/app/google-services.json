@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "757555220038",
+    "project_id": "garagegpro",
+    "storage_bucket": "garagegpro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757555220038:android:f350c737e9bb7632384447",
+        "android_client_info": {
+          "package_name": "com.example.garagegpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757555220038-r6sl14ui4faaotfv3bgk66rmf3u19ojh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.garagegpro",
+            "certificate_hash": "19e5d92b74d5ddb91da017b73d7c5b10ee647003"
+          }
+        },
+        {
+          "client_id": "757555220038-9mis7d9v1afi6222h4ksfk6v73ldl0t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkFIdLI8mx-XgslYyHfO0NRt2UM8pkdSQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757555220038-9mis7d9v1afi6222h4ksfk6v73ldl0t2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "757555220038-pljerntvc4t4akiogbo20d9d75sekkb1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.garagegpro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

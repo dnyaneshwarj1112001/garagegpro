@@ -4,8 +4,11 @@ import 'package:garagegpro/app/core/constants/customeButton/customebuttons.dart'
 import 'package:garagegpro/app/core/theme/app_colors.dart';
 import 'package:garagegpro/app/core/theme/app_typography.dart';
 import 'package:garagegpro/app/routes/app_routes_path.dart';
+import 'package:garagegpro/features/auth/auth_service.dart';
 import 'package:go_router/go_router.dart';
-import 'package:auth_buttons/auth_buttons.dart';
+
+final AuthService _authService = AuthService();
+bool _isGoogleLogin = false;
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -46,6 +49,35 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _handelGoogleLogin() async {
+    setState(() {
+      _isGoogleLogin = true;
+    });
+
+    try {
+      final usercredential = await _authService.signInWithGoogle();
+
+      if (!mounted) return;
+
+      if (usercredential != null) {
+        context.go(AppRoutepath.dashboard);
+      }
+    } catch (e) {
+      if (!mounted) return;
+      print(e.toString());
+
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("SignIn failed: ${e.toString()}")));
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isGoogleLogin = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _handelLogin() async {
     try {
       await Future.delayed(Duration(seconds: 2));
       if (!mounted) {
@@ -214,7 +246,6 @@ class _LoginPageState extends State<LoginPage> {
                           // Remember Me & Forgot Password
                           LoginWithGoogleButton(
                             onPressed: () {
-                              
                               _handelGoogleLogin();
                             },
                           ),
